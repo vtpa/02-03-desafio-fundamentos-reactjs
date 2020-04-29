@@ -21,10 +21,15 @@ export const Container = styled.div<ContainerProps>`
         color: #fff;
         text-decoration: none;
         font-size: 16px;
+        padding-bottom: 5px;
         transition: opacity 0.2s;
+        border-bottom: ${({ size }) =>
+          size === 'small' ? '0' : '3px solid #FF872C'};
 
         & + a {
           margin-left: 32px;
+          border-bottom: ${({ size }) =>
+            size === 'small' ? '3px solid #FF872C' : '0'};
         }
 
         &:hover {
