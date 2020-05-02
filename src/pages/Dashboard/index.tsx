@@ -30,23 +30,18 @@ interface Balance {
   total: string;
 }
 
-interface ResponseT {
-  transactions: Transaction[];
-  balance: Balance;
-}
-
 const Dashboard: React.FC = () => {
   const [transactions, setTransactions] = useState<Transaction[]>([]);
 
   const [balance, setBalance] = useState<Balance>({} as Balance);
 
   useEffect(() => {
-    api.get<ResponseT>('/transactions').then(response => {
+    api.get('/transactions').then(response => {
       const { data } = response;
       setTransactions(data.transactions);
       setBalance(data.balance);
     });
-  }, [transactions]);
+  }, []);
 
   return (
     <>
